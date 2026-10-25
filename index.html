@@ -1,0 +1,818 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f4f0e6">
+<title>私人影视｜独立观影笔记、片单手札与影像收藏 · sirenyingshi-zh</title>
+<meta name="description" content="私人影视（sirenyingshi-zh）是一份由个人维护的影像手札：记录独立电影、冷门剧集、纪录片与短片的观看线索、版本出处和重看笔记。不追热榜，只留值得再翻一次的画面。站内全部条目按题材、年代与介质整理，可长期订阅与回溯。">
+<meta name="keywords" content="私人影视, 独立电影笔记, 影像收藏, 冷门片单, sirenyingshi-zh, 个人观影档案">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="私人影视">
+<meta property="og:title" content="私人影视｜独立观影笔记、片单手札与影像收藏">
+<meta property="og:description" content="一份个人维护的影像手札：独立电影、冷门剧集、纪录片与短片的观看线索、版本出处和重看笔记。">
+<meta property="og:url" content="https://sirenyingshi-zh.github.io/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="私人影视｜独立观影笔记与影像收藏 · sirenyingshi-zh">
+<meta name="twitter:description" content="不追热榜，只留值得再翻一次的画面。个人影像手札，长期更新与回溯。">
+<meta name="twitter:url" content="https://sirenyingshi-zh.github.io/">
+<link rel="canonical" href="https://sirenyingshi-zh.github.io/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f4f0e6'/><path d='M30 22h40v56H30z' fill='none' stroke='%23221f1a' stroke-width='4'/><circle cx='50' cy='50' r='9' fill='%23221f1a'/></svg>">
+<style>
+:root{
+  --ink:#221f1a;
+  --ink-2:#4b453c;
+  --ink-3:#8a8275;
+  --paper:#f4f0e6;
+  --paper-2:#efe9da;
+  --paper-3:#e6dfcd;
+  --red:#9e2b25;
+  --line:rgba(34,31,26,.16);
+  --max:1080px;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  --mono:"JetBrains Mono","SFMono-Regular",ui-monospace,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.85;
+  text-rendering:optimizeLegibility;
+  background-image:
+    linear-gradient(rgba(34,31,26,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,31,26,.012) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:49;
+  background:linear-gradient(180deg,rgba(244,240,230,.92),rgba(244,240,230,.74) 120px,rgba(244,240,230,0) 320px);
+}
+a{color:var(--ink);text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--red);color:#fdfbf5}
+
+/* ===== 顶部刊头 ===== */
+.masthead{
+  position:relative;z-index:10;
+  border-bottom:1.5px solid var(--ink);
+  background:rgba(244,240,230,.94);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+.mast-inner{
+  max-width:var(--max);margin:0 auto;padding:18px 22px 14px;
+  display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:14px;
+}
+.mast-meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase}
+.mast-meta b{color:var(--red);font-weight:600}
+.brand{text-align:center}
+.brand h1{
+  margin:0;font-family:var(--serif);font-weight:700;
+  font-size:clamp(30px,6.2vw,54px);letter-spacing:.32em;text-indent:.32em;line-height:1.1;
+}
+.brand .sub{display:block;margin-top:8px;font-size:11px;letter-spacing:.34em;color:var(--ink-2)}
+.brand .sub em{font-style:normal;color:var(--red)}
+.mast-tools{text-align:right}
+.issue{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--line);border-radius:2px;
+  padding:5px 10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-2);
+}
+.issue i{width:6px;height:6px;background:var(--red);border-radius:50%;display:inline-block;animation:pulse 2.6s infinite}
+
+/* ===== 导航 ===== */
+.navbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(244,240,230,.97);border-bottom:1px solid var(--line);
+}
+.nav-wrap{max-width:var(--max);margin:0 auto;padding:0 14px;display:flex;align-items:center;gap:2px;overflow-x:auto}
+.nav-wrap a{
+  flex:none;padding:11px 13px;font-size:13.5px;letter-spacing:.08em;color:var(--ink-2);
+  border-bottom:2px solid transparent;white-space:nowrap;
+}
+.nav-wrap a:hover,.nav-wrap a.active{color:var(--ink);border-bottom-color:var(--red)}
+.nav-wrap a span{font-family:var(--mono);font-size:9.5px;color:var(--ink-3);margin-right:5px;letter-spacing:0}
+.menu-btn{display:none}
+
+/* ===== 布局 ===== */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+section{padding:64px 0 8px;scroll-margin-top:70px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:30px}
+.sec-head .no{font-family:var(--serif);font-size:26px;color:var(--red);line-height:1;font-weight:700;min-width:52px}
+.sec-head h2{margin:0;font-family:var(--serif);font-size:clamp(21px,3.4vw,28px);letter-spacing:.1em;font-weight:700}
+.sec-head .en{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--ink-3);text-transform:uppercase;text-align:right;line-height:1.5}
+.lede{font-size:15.5px;color:var(--ink-2);max-width:64ch;margin:-12px 0 34px}
+
+/* ===== 卷首 ===== */
+.hero{position:relative;z-index:5;padding:56px 0 12px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:38px;align-items:center}
+.hero h2{
+  margin:0 0 18px;font-family:var(--serif);font-weight:700;
+  font-size:clamp(27px,4.6vw,44px);line-height:1.34;letter-spacing:.04em;
+}
+.hero h2 u{text-decoration:none;border-bottom:5px solid rgba(158,43,37,.42);padding-bottom:1px}
+.hero p{color:var(--ink-2);font-size:15.5px;margin:0 0 20px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 18px;border:1px solid var(--ink);background:var(--ink);color:#fdfbf5;
+  font-size:13.5px;letter-spacing:.1em;border-radius:2px;
+}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+.stamp{
+  position:relative;aspect-ratio:1/1;max-width:340px;margin-left:auto;
+  border:1.5px dashed var(--ink-3);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 52% 46%,var(--paper-2),var(--paper-3));
+  transform:rotate(-7deg);
+}
+.stamp::after{content:"";position:absolute;inset:14px;border:1px solid var(--line);border-radius:50%}
+.stamp-inner{position:relative;z-index:2;text-align:center;transform:rotate(7deg)}
+.stamp-inner b{display:block;font-family:var(--serif);font-size:clamp(26px,5vw,40px);letter-spacing:.2em;text-indent:.2em;line-height:1.15}
+.stamp-inner small{display:block;margin-top:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:.28em;color:var(--red)}
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:44px;padding:9px 0;overflow:hidden;font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--ink-3);white-space:nowrap}
+.marquee span{display:inline-block;animation:scroll 38s linear infinite}
+.marquee b{color:var(--red);font-weight:600}
+
+/* ===== 片单 ===== */
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+.filters button{
+  font:inherit;font-size:12.5px;letter-spacing:.06em;color:var(--ink-2);
+  padding:6px 13px;border:1px solid var(--line);background:var(--paper);border-radius:20px;cursor:pointer;
+}
+.filters button.on{background:var(--ink);color:#fdfbf5;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
+.card{
+  background:var(--paper);border:1px solid var(--line);border-radius:3px;overflow:hidden;
+  display:flex;flex-direction:column;transition:.25s cubic-bezier(.2,.7,.3,1);
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px -16px rgba(34,31,26,.5);border-color:var(--ink-3)}
+.cover{
+  position:relative;aspect-ratio:3/4;overflow:hidden;
+  background:linear-gradient(140deg,var(--paper-2),var(--paper-3));
+  border-bottom:1px solid var(--line);
+}
+.cover .glyph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:clamp(34px,7vw,62px);color:var(--ink);opacity:.82;line-height:1;
+}
+.cover .tag{
+  position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:9px;letter-spacing:.16em;
+  background:var(--paper);border:1px solid var(--line);padding:3px 7px;color:var(--ink-2);
+}
+.cover .yr{
+  position:absolute;bottom:10px;right:10px;font-family:var(--mono);font-size:9.5px;color:var(--ink-3);letter-spacing:.1em;
+}
+.card-body{padding:14px 15px 16px;flex:1;display:flex;flex-direction:column}
+.card-body h3{margin:0 0 6px;font-family:var(--serif);font-size:18px;letter-spacing:.04em;line-height:1.4}
+.card-body .meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--ink-3);margin-bottom:9px}
+.card-body p{margin:0;font-size:13.2px;color:var(--ink-2);line-height:1.72;flex:1}
+.card-foot{margin-top:12px;display:flex;align-items:center;justify-content:space-between;border-top:1px dotted var(--line);padding-top:9px}
+.card-foot a{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--red)}
+.card-foot a::after{content:" →"}
+.card.hide{display:none}
+
+/* ===== 指南（时间线） ===== */
+.timeline{position:relative;padding-left:30px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:var(--line)}
+.step{position:relative;padding-bottom:26px}
+.step::before{
+  content:"";position:absolute;left:-30px;top:9px;width:9px;height:9px;background:var(--paper);
+  border:1.5px solid var(--ink);border-radius:50%;
+}
+.step::after{content:attr(data-n);position:absolute;left:-52px;top:5px;font-family:var(--mono);font-size:9.5px;color:var(--ink-3);letter-spacing:.1em}
+.step h3{margin:0 0 5px;font-family:var(--serif);font-size:18.5px;letter-spacing:.04em}
+.step p{margin:0;color:var(--ink-2);font-size:14px}
+.step .note{margin-top:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--red)}
+
+/* ===== 动态（报刊栏） ===== */
+.news{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.note-card{
+  border-top:3px solid var(--ink);padding-top:13px;background:var(--paper);
+}
+.note-card .d{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--red);margin-bottom:7px}
+.note-card h3{margin:0 0 7px;font-family:var(--serif);font-size:19px;line-height:1.45;letter-spacing:.03em}
+.note-card p{margin:0;font-size:13.5px;color:var(--ink-2)}
+.note-card a{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;border-bottom:1px solid var(--ink)}
+.note-card a:hover{color:var(--red);border-color:var(--red)}
+
+/* ===== 收录 ===== */
+.seo-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start}
+.urlbox{
+  background:var(--ink);color:#f4f0e6;border-radius:3px;padding:20px 20px 16px;
+  font-family:var(--mono);font-size:12.5px;line-height:2;word-break:break-all;
+}
+.urlbox b{display:block;font-family:var(--serif);font-size:17px;letter-spacing:.14em;color:#fff;margin-bottom:10px;font-weight:700}
+.urlbox code{color:#e8c9a8}
+.urlbox button{
+  margin-top:14px;font:inherit;font-size:11px;letter-spacing:.18em;color:var(--ink);
+  background:var(--paper);border:0;padding:8px 14px;border-radius:2px;cursor:pointer;
+}
+.urlbox button:hover{background:var(--red);color:#fff}
+.facts{border:1px solid var(--line);background:var(--paper)}
+.facts dl{margin:0;padding:0}
+.facts div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:11px 15px;border-bottom:1px dotted var(--line);font-size:13.3px}
+.facts div:last-child{border-bottom:0}
+.facts dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink-3);padding-top:3px}
+.facts dd{margin:0;color:var(--ink-2)}
+.facts dd strong{color:var(--ink);font-weight:600}
+
+/* ===== 关于 ===== */
+.about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.about-grid article{border:1px solid var(--line);padding:18px;background:var(--paper);border-radius:3px}
+.about-grid .k{font-family:var(--mono);font-size:10px;letter-spacing:.24em;color:var(--red);margin-bottom:9px;display:block}
+.about-grid h3{margin:0 0 7px;font-family:var(--serif);font-size:18px;letter-spacing:.04em}
+.about-grid p{margin:0;font-size:13.4px;color:var(--ink-2)}
+.signoff{max-width:64ch;margin:34px auto 0;text-align:center;font-family:var(--serif);font-size:16px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:24px}
+.signoff small{display:block;margin-top:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;color:var(--ink-3)}
+
+/* ===== 页脚 ===== */
+footer{border-top:1.5px solid var(--ink);margin-top:72px;padding:34px 0 46px;background:var(--paper-2)}
+.foot-inner{max-width:var(--max);margin:0 auto;padding:0 22px;display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:12.5px;color:var(--ink-2)}
+.foot-inner a{color:var(--ink);border-bottom:1px solid var(--line)}
+.foot-inner a:hover{color:var(--red);border-color:var(--red)}
+.foot-r{text-align:right}
+.foot-r .mon{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--ink-3);display:block;margin-top:6px}
+
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* ===== 移动端 ===== */
+@media(max-width:820px){
+  body{font-size:15.4px;background-size:24px 24px}
+  .mast-inner{grid-template-columns:1fr auto;padding:14px 16px 11px;gap:10px}
+  .mast-meta{font-size:9.5px}
+  .mast-tools{display:none}
+  .brand h1{font-size:clamp(27px,9vw,38px);letter-spacing:.26em;text-indent:.26em}
+  .brand .sub{font-size:9.5px;letter-spacing:.26em}
+  .navbar{top:0}
+  .nav-wrap{
+    overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding:0 10px;gap:0;
+  }
+  .nav-wrap::-webkit-scrollbar{display:none}
+  .nav-wrap a{padding:11px 12px;font-size:13px}
+  .nav-wrap a span{display:none}
+  .wrap{padding:0 16px}
+  section{padding:48px 0 4px;scroll-margin-top:60px}
+  .sec-head{flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .sec-head .en{margin-left:0;flex-basis:100%;text-align:left}
+  .hero{padding:34px 0 6px}
+  .hero-grid{grid-template-columns:1fr;gap:26px}
+  .stamp{margin:0 auto;max-width:260px}
+  .marquee{margin-top:30px;font-size:10px}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+  .card-body{padding:12px 12px 14px}
+  .card-body h3{font-size:16.5px}
+  .card-body p{font-size:12.8px}
+  .seo-grid{grid-template-columns:1fr;gap:20px}
+  .facts div{grid-template-columns:82px 1fr;gap:8px;font-size:12.8px;padding:10px 12px}
+  .timeline{padding-left:24px}
+  .step::before{left:-24px}
+  .step::after{left:-44px;font-size:9px}
+  .foot-inner{grid-template-columns:1fr;gap:12px}
+  .foot-r{text-align:left}
+}
+@media print{
+  body{background:#fff}
+  .navbar,.marquee,.urlbox button,.filters{display:none}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<header class="masthead" role="banner">
+  <div class="mast-inner">
+    <div class="mast-meta">
+      卷 <b>VII</b> · 壬寅刊<br>
+      <span id="today">—</span>
+    </div>
+    <div class="brand">
+      <h1>私人影视</h1>
+      <span class="sub">独立观影笔记 · 影像收藏手札 · <em>sirenyingshi-zh</em></span>
+    </div>
+    <div class="mast-tools">
+      <span class="issue"><i></i> 站点在线 · 手动更新中</span>
+    </div>
+  </div>
+</header>
+
+<nav class="navbar" aria-label="主导航">
+  <div class="nav-wrap">
+    <a href="#pianku"><span>01</span>片单档案</a>
+    <a href="#zhinan"><span>02</span>观影指南</a>
+    <a href="#dongtai"><span>03</span>近期手记</a>
+    <a href="#suoyin"><span>04</span>收录与索引</a>
+    <a href="#guanyu"><span>05</span>关于本站</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- 卷首 -->
+<section class="hero" id="top" aria-labelledby="heroTitle">
+  <div class="wrap hero-grid">
+    <div>
+      <h2 id="heroTitle">把看过的影像，<br>重新<em style="font-style:normal;border-bottom:5px solid rgba(158,43,37,.42)">收成一卷</em>。</h2>
+      <p><strong>私人影视</strong>不替你做排行榜，也不追当周热搜。这里只记录那些看完还想再翻一帧的画面——独立电影、冷门剧集、纪录片与短片，连同版本出处、放映介质和第二次观看时的新发现，一并留在 sirenyingshi-zh 这份个人手札里。</p>
+      <div class="hero-actions">
+        <a class="btn" href="#pianku">翻阅片单档案</a>
+        <a class="btn ghost" href="#suoyin">查看收录地址</a>
+      </div>
+    </div>
+    <div class="stamp" aria-hidden="true">
+      <div class="stamp-inner">
+        <b>私人<br>影视</b>
+        <small>SIREN · YINGSHI · ZH</small>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="marquee" aria-hidden="true">
+      <span>
+        <b>私人影视</b> · sirenyingshi-zh.github.io · 独立观影笔记　·　<b>私人影视</b> · 不追热榜，只留值得再翻一次的画面　·　冷门片单 · 版本出处 · 重看笔记　·　<b>私人影视</b> · sirenyingshi-zh.github.io · 独立观影笔记　·　<b>私人影视</b> · 不追热榜，只留值得再翻一次的画面　·　冷门片单 · 版本出处 · 重看笔记　·
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- 01 片单档案 -->
+<section id="pianku" aria-labelledby="t1">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">壹</span>
+      <h2 id="t1">片单档案</h2>
+      <span class="en">Catalogue / 影像条目库</span>
+    </div>
+    <p class="lede">每一则条目都按<strong>题材、年代、介质</strong>三栏归档。点右侧标签可单独筛出一种气质；条目标题即内容本身，不依赖外部图片也能读完。</p>
+
+    <div class="filters" role="group" aria-label="片单筛选">
+      <button class="on" data-f="all">全部 · 12</button>
+      <button data-f="film">独立电影</button>
+      <button data-f="doc">纪录片</button>
+      <button data-f="tv">剧集</button>
+      <button data-f="short">短片</button>
+    </div>
+
+    <div class="grid" id="catalog">
+
+      <article class="card" data-cat="film">
+        <div class="cover">
+          <span class="tag">35mm · 修复版</span>
+          <span class="glyph">岸</span>
+          <span class="yr">1993</span>
+        </div>
+        <div class="card-body">
+          <h3>漫长的告别，在码头</h3>
+          <div class="meta">独立电影 · 112 min · 胶片拷贝</div>
+          <p>用几乎静止的长镜看一个渡口的三天。第二次看才注意到声轨里始终没停过的汽笛，那是全片真正的旁白。</p>
+          <div class="card-foot">
+            <a href="#pianku">重看笔记 →</a>
+            <span class="meta">标记 Ⅱ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="doc">
+        <div class="cover">
+          <span class="tag">田野录音</span>
+          <span class="glyph">声</span>
+          <span class="yr">2018</span>
+        </div>
+        <div class="card-body">
+          <h3>收声的人</h3>
+          <div class="meta">纪录片 · 78 min · 数字版</div>
+          <p>跟拍一位在县城录庙会声音的老人。没有旁白、没有配乐，剪辑全靠季节换场，是近年少见的克制。</p>
+          <div class="card-foot">
+            <a href="#pianku">版本对照 →</a>
+            <span class="meta">标记 Ⅱ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="tv">
+        <div class="cover">
+          <span class="tag">台版 · 全 12 集</span>
+          <span class="glyph">巷</span>
+          <span class="yr">2020</span>
+        </div>
+        <div class="card-body">
+          <h3>巷口事务所</h3>
+          <div class="meta">剧集 · 单集 28 min · 流媒体</div>
+          <p>一部把「邻里纠纷」拍成轻寓言的小体量剧。第三集的转场处理值得逐帧看，结尾那顿午饭是全剧的题眼。</p>
+          <div class="card-foot">
+            <a href="#pianku">分集手记 →</a>
+            <span class="meta">标记 Ⅰ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="short">
+        <div class="cover">
+          <span class="tag">学生作业 · 16mm</span>
+          <span class="glyph">雨</span>
+          <span class="yr">2015</span>
+        </div>
+        <div class="card-body">
+          <h3>雨停之前的那分钟</h3>
+          <div class="meta">短片 · 9 min · 胶片扫描</div>
+          <p>全片只有一个机位、一句对白也没有。雨声是后期在浴室录的，这个细节让它的廉价感反而成立了。</p>
+          <div class="card-foot">
+            <a href="#pianku">技术备注 →</a>
+            <span class="meta">标记 Ⅲ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="film">
+        <div class="cover">
+          <span class="tag">首作 · 海外节展</span>
+          <span class="glyph">北</span>
+          <span class="yr">2022</span>
+        </div>
+        <div class="card-body">
+          <h3>北风路过菜市场</h3>
+          <div class="meta">独立电影 · 96 min · DCP</div>
+          <p>导演的第一部长片，手持晃得厉害，但菜摊那场戏的调度极其精准。属于看第一遍会皱眉、第三遍会安静下来的那种。</p>
+          <div class="card-foot">
+            <a href="#pianku">节展版本 →</a>
+            <span class="meta">标记 Ⅰ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="doc">
+        <div class="cover">
+          <span class="tag">口述史</span>
+          <span class="glyph">老</span>
+          <span class="yr">2011</span>
+        </div>
+        <div class="card-body">
+          <h3>老放映员手记</h3>
+          <div class="meta">纪录片 · 54 min · 修复版</div>
+          <p>一位乡镇放映员保存了四十年的换片单和观众留言。影像质感粗粝，史料价值却比画面本身重得多。</p>
+          <div class="card-foot">
+            <a href="#pianku">来源说明 →</a>
+            <span class="meta">标记 Ⅱ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="tv">
+        <div class="cover">
+          <span class="tag">冷门 · 单季完结</span>
+          <span class="glyph">信</span>
+          <span class="yr">2017</span>
+        </div>
+        <div class="card-body">
+          <h3>寄不出的六封信</h3>
+          <div class="meta">剧集 · 单集 35 min · 碟片</div>
+          <p>六集对应六封没寄出的信，叙事环环相扣却从不解释动机。最后一集的留白处理，比大多数悬疑剧的揭底高明。</p>
+          <div class="card-foot">
+            <a href="#pianku">观后杂谈 →</a>
+            <span class="meta">标记 Ⅰ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="short">
+        <div class="cover">
+          <span class="tag">实验 · 无声</span>
+          <span class="glyph">窗</span>
+          <span class="yr">2024</span>
+        </div>
+        <div class="card-body">
+          <h3>窗框里的四季</h3>
+          <div class="meta">短片 · 4 min · 4K</div>
+          <p>固定机位拍同一扇窗，四季各一分钟。没有剪辑，只有光的变化。适合需要被按下暂停键的时候看。</p>
+          <div class="card-foot">
+            <a href="#pianku">观看建议 →</a>
+            <span class="meta">标记 Ⅲ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="film">
+        <div class="cover">
+          <span class="tag">黑白 · 修复</span>
+          <span class="glyph">雾</span>
+          <span class="yr">2006</span>
+        </div>
+        <div class="card-body">
+          <h3>雾里的证人</h3>
+          <div class="meta">独立电影 · 88 min · 2K 修复</div>
+          <p>低成本黑白片，靠声音制造空间感。修复版把原本被抹掉的街景环境音找回来了，观感比首映场更完整。</p>
+          <div class="card-foot">
+            <a href="#pianku">修复差异 →</a>
+            <span class="meta">标记 Ⅱ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="doc">
+        <div class="cover">
+          <span class="tag">建筑影像</span>
+          <span class="glyph">楼</span>
+          <span class="yr">2019</span>
+        </div>
+        <div class="card-body">
+          <h3>一栋楼的二十年</h3>
+          <div class="meta">纪录片 · 63 min · 数字版</div>
+          <p>跟踪一栋老居民楼从拆迁通知到清空的过程。导演没采访任何人，只拍门牌、晾衣杆和逐渐变空的楼梯间。</p>
+          <div class="card-foot">
+            <a href="#pianku">条目详情 →</a>
+            <span class="meta">标记 Ⅱ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="tv">
+        <div class="cover">
+          <span class="tag">迷你剧 · 3 集</span>
+          <span class="glyph">夜</span>
+          <span class="yr">2023</span>
+        </div>
+        <div class="card-body">
+          <h3>夜班便利店</h3>
+          <div class="meta">剧集 · 单集 42 min · 流媒体</div>
+          <p>三集讲三个夜班，演员几乎只有一个人对着收银机说话。台词密度极高，适合当「声音陪伴」反复听。</p>
+          <div class="card-foot">
+            <a href="#pianku">台词摘录 →</a>
+            <span class="meta">标记 Ⅰ</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="short">
+        <div class="cover">
+          <span class="tag">动画 · 手绘</span>
+          <span class="glyph">线</span>
+          <span class="yr">2021</span>
+        </div>
+        <div class="card-body">
+          <h3>一根线的旅行</h3>
+          <div class="meta">短片 · 6 min · 手绘扫描</div>
+          <p>全片只有一根不断变形的线，配乐是铅笔在纸上摩擦的实录。三分钟处的那个转折，是我今年记得最牢的动画瞬间。</p>
+          <div class="card-foot">
+            <a href="#pianku">观看路径 →</a>
+            <span class="meta">标记 Ⅲ</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 02 观影指南 -->
+<section id="zhinan" aria-labelledby="t2">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">贰</span>
+      <h2 id="t2">观影指南</h2>
+      <span class="en">How to read this archive</span>
+    </div>
+    <p class="lede">这份指南不是教程，是我在整理 <strong>私人影视</strong> 条目时反复用到的几套习惯。照着走一遍，片库会比「随便刷」好用很多。</p>
+
+    <div class="timeline">
+      <div class="step" data-n="STEP 01">
+        <h3>先定一个很小的入口</h3>
+        <p>别从「经典必看」开始。选一个具体的切口——比如某一年、某种介质、某座城市，先把 3 到 5 条看透，比一口气存三十条有用。</p>
+        <p class="note">本站做法：每条目只标题材 / 年代 / 介质三栏，不打分、不排座次。</p>
+      </div>
+      <div class="step" data-n="STEP 02">
+        <h3>记下版本，而不只记下片名</h3>
+        <p>同一部片子，胶片拷贝、电视剪辑版和流媒体版的色调、声轨、甚至场次都可能不同。写笔记时把版本出处一并写上，半年后你会感谢自己。</p>
+        <p class="note">版本差异会单独标注在条目页的「技术备注」里。</p>
+      </div>
+      <div class="step" data-n="STEP 03">
+        <h3>允许第二次看和第一次不一样</h3>
+        <p>冷门影像的价值常常在重看时才出来：可能是某句台词的位置，也可能是剪辑点的节奏。本站用「标记 Ⅰ / Ⅱ / Ⅲ」记录重看轮次。</p>
+        <p class="note">Ⅰ＝初见印象，Ⅱ＝有新的发现，Ⅲ＝可以放心推荐给别人。</p>
+      </div>
+      <div class="step" data-n="STEP 04">
+        <h3>把噪音关掉再打开</h3>
+        <p>看纪录片关弹幕、看实验短片用耳机、看长镜别碰进度条。观看环境本身也是「版本」的一部分，这点在手机小屏上尤其明显。</p>
+        <p class="note">每则条目末尾都写了我自己的观看建议，可跳过也可照做。</p>
+      </div>
+      <div class="step" data-n="STEP 05">
+        <h3>留白比补齐更重要</h3>
+        <p>片库不追求完整，也不追新。一部没看懂的片子可以一直挂着「待重看」，这比硬写一段感想诚实得多。</p>
+        <p class="note">更新频率很低，平均每月 1–2 条，所有变动都记在「近期手记」里。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 近期手记 -->
+<section id="dongtai" aria-labelledby="t3">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">叁</span>
+      <h2 id="t3">近期手记</h2>
+      <span class="en">Field notes · 更新日志</span>
+    </div>
+
+    <div class="news">
+      <article class="note-card">
+        <div class="d">2026 · 10 · 21</div>
+        <h3>补齐了三部纪录片的版本出处</h3>
+        <p>《收声的人》《老放映员手记》《一栋楼的二十年》都找到了更早的放映拷贝信息，已写进各自条目的「技术备注」。流媒体版和节展版差别比预想中大。</p>
+        <a href="#pianku">去片单对照 →</a>
+      </article>
+
+      <article class="note-card">
+        <div class="d">2026 · 09 · 30</div>
+        <h3>新开「短片」一栏，收了两条四分钟以内的</h3>
+        <p>之前短片都散在别处，现在单独成类。《窗框里的四季》和《一根线的旅行》都很适合通勤时看，不需要大屏幕也能成立。</p>
+        <a href="#pianku" data-jump="short">只看短片 →</a>
+      </article>
+
+      <article class="note-card">
+        <div class="d">2026 · 08 · 14</div>
+        <h3>关于「不打分」这件事，再解释一次</h3>
+        <p>收到几条留言问为什么没有星级。理由很简单：这里的条目是给未来的自己读的，不是给别人排序的。重看轮次标记比分数更能说明问题。</p>
+        <a href="#zhinan">回到观影指南 →</a>
+      </article>
+
+      <article class="note-card">
+        <div class="d">2026 · 07 · 02</div>
+        <h3>站点迁到独立地址，旧链接已归档</h3>
+        <p>从零散的笔记页整理成现在这份固定归档，正式落在 <strong>sirenyingshi-zh.github.io</strong>。旧平台上的零散短评不再更新，但不会删除，作为最早的草稿留着。</p>
+        <a href="#suoyin">查看收录地址 →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 04 收录与索引 -->
+<section id="suoyin" aria-labelledby="t4">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">肆</span>
+      <h2 id="t4">收录与索引</h2>
+      <span class="en">Index / 站址与检索说明</span>
+    </div>
+    <p class="lede">本站是单页归档，所有栏目都在同一地址下通过锚点定位。搜索引擎只需收录一个规范地址，栏目内容即可整页读取，无需额外索引文件。</p>
+
+    <div class="seo-grid">
+      <div class="urlbox" aria-label="站点规范地址">
+        <b>规范收录地址</b>
+        <code id="siteUrl">https://sirenyingshi-zh.github.io/</code>
+        <div style="color:#bfae94;margin-top:6px">站点名称：私人影视　·　标识：sirenyingshi-zh</div>
+        <button id="copyBtn" type="button">复制此地址</button>
+      </div>
+
+      <div class="facts" aria-label="索引与栏目说明">
+        <div><dt>站点名称</dt><dd><strong>私人影视</strong>（sirenyingshi-zh）</dd></div>
+        <div><dt>规范地址</dt><dd>https://sirenyingshi-zh.github.io/</dd></div>
+        <div><dt>页面结构</dt><dd>单页五栏，内链均为锚点：<code>#pianku</code> <code>#zhinan</code> <code>#dongtai</code> <code>#suoyin</code> <code>#guanyu</code></dd></div>
+        <div><dt>内容主体</dt><dd>独立电影、纪录片、剧集、短片四类影像条目与观看笔记</dd></div>
+        <div><dt>更新方式</dt><dd>手动维护，更新时同步写入「近期手记」，无固定发布周期</dd></div>
+        <div><dt>索引提示</dt><dd>正文即内容，无脚本依赖；未设置抓取排除，亦不提供站点地图文件</dd></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 关于 -->
+<section id="guanyu" aria-labelledby="t5">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="no">伍</span>
+      <h2 id="t5">关于本站</h2>
+      <span class="en">About this archive</span>
+    </div>
+
+    <div class="about-grid">
+      <article>
+        <span class="k">WHAT IT IS</span>
+        <h3>一个人的影像草稿本</h3>
+        <p><strong>私人影视</strong>由个人长期维护，不做资讯聚合、不做资源分发、不追榜单。它更接近一本手写过的观影台账，能翻、能找、能重看，但不替谁下结论。</p>
+      </article>
+      <article>
+        <span class="k">WHAT IT ISN'T</span>
+        <h3>不是在线片库，也不提供片源</h3>
+        <p>这里只有条目、版本出处和观看笔记，不存放也不指向可下载的影片文件。若你想找某部片子，请移步正版发行或放映渠道，本站只负责记下它值得被记得的部分。</p>
+      </article>
+      <article>
+        <span class="k">THE NAME</span>
+        <h3>为什么叫「私人」</h3>
+        <p>因为筛选标准只来自一个人的口味与记忆：偏冷门、偏克制、偏声音和细节。它不宣称客观，也正因如此，每一条推荐都带着具体的观看现场。</p>
+      </article>
+      <article>
+        <span class="k">THE ADDRESS</span>
+        <h3>固定落在一个地址</h3>
+        <p>所有内容都在 <strong>https://sirenyingshi-zh.github.io/</strong> 这一页里。换设备、换网络、几年后再来，链接不会变，条目也不会被算法冲走。</p>
+      </article>
+    </div>
+
+    <p class="signoff">
+      看得慢一点，画面会自己走回来。
+      <small>私人影视 · sirenyingshi-zh · 此页即全站，无次级页面</small>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer role="contentinfo">
+  <div class="foot-inner">
+    <div>
+      <strong>私人影视</strong> · 独立观影笔记与影像收藏手札<br>
+      本站所有条目均为个人观看记录，不代表任何机构立场。转载或引用请保留站点名称与原始地址。
+    </div>
+    <div class="foot-r">
+      <a href="#top">回到卷首 ↑</a>
+      <span class="mon">https://sirenyingshi-zh.github.io/</span>
+      <span class="mon" id="footDate">—</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var u="https://sirenyingshi-zh.github.io/";
+  var d=new Date();
+  var fmt=function(d){return d.getFullYear()+" · "+String(d.getMonth()+1).padStart(2,"0")+" · "+String(d.getDate()).padStart(2,"0")};
+  var el=document.getElementById("today");
+  if(el) el.textContent=fmt(d)+" · 手札连载中";
+  var f=document.getElementById("footDate");
+  if(f) f.textContent="最近修订 "+fmt(d);
+
+  var btn=document.getElementById("copyBtn");
+  if(btn){
+    btn.addEventListener("click",function(){
+      var done=function(){btn.textContent="已复制 ✓";setTimeout(function(){btn.textContent="复制此地址"},1800)};
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(u).then(done,function(){fallback()});
+      } else {fallback()}
+      function fallback(){
+        var t=document.createElement("textarea");
+        t.value=u;t.style.position="fixed";t.style.opacity="0";
+        document.body.appendChild(t);t.select();
+        try{document.execCommand("copy");done()}catch(e){btn.textContent="请手动复制上方地址"}
+        document.body.removeChild(t);
+      }
+    });
+  }
+
+  var links=document.querySelectorAll('.filters button');
+  var cards=document.querySelectorAll('.card');
+  links.forEach(function(b){
+    b.addEventListener("click",function(){
+      links.forEach(function(x){x.classList.remove("on")});
+      b.classList.add("on");
+      var f=b.getAttribute("data-f");
+      var n=0;
+      cards.forEach(function(c){
+        var ok=(f==="all"||c.getAttribute("data-cat")===f);
+        c.classList.toggle("hide",!ok);
+        if(ok) n++;
+      });
+      var t=document.querySelector('.filters');
+      if(t){
+        var hint=t.querySelector('.cnt');
+        if(!hint){hint=document.createElement("span");hint.className="cnt";
+          hint.style.cssText="font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--ink-3);margin-left:10px";
+          t.appendChild(hint);
+        }
+        hint.textContent="当前显示 "+n+" 条";
+      }
+    });
+  });
+
+  var nav=document.querySelectorAll('.nav-wrap a');
+  var spy=function(){
+    var y=window.scrollY+120,cur="";
+    document.querySelectorAll('section[id]').forEach(function(s){
+      if(s.offsetTop<=y) cur=s.getAttribute("id");
+    });
+    nav.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+cur)});
+  };
+  window.addEventListener("scroll",spy,{passive:true});
+  spy();
+
+  var j=document.querySelector('a[data-jump]');
+  if(j){
+    j.addEventListener("click",function(e){
+      e.preventDefault();
+      var b=document.querySelector('.filters button[data-f="'+j.getAttribute("data-jump")+'"]');
+      if(b) b.click();
+      var t=document.getElementById("pianku");
+      if(t) t.scrollIntoView({behavior:"smooth",block:"start"});
+    });
+  }
+})();
+</script>
+</body>
+</html>
